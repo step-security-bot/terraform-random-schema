@@ -23,7 +23,7 @@ import (
 )
 
 func main() {
-	refreshFlag := flag.Bool("refresh", false, "Refresh AzureAD schema")
+	refreshFlag := flag.Bool("refresh", false, "Refresh Random schema")
 	commitFlag := flag.String("commit", "", "Commit schema with specified version")
 
 	// Parse flags
@@ -185,7 +185,7 @@ func checkGitHubTag(schemaVersion string) (bool, error) {
 	options := &github.ListOptions{PerPage: 100}
 
 	for {
-		tags, resp, err := client.Repositories.ListTags(context.Background(), "lonegunmanb", "terraform-azurerm-schema", options)
+		tags, resp, err := client.Repositories.ListTags(context.Background(), "lonegunmanb", "terraform-random-schema", options)
 		if err != nil {
 			return false, err
 		}
